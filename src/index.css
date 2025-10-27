@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+@theme {
+    /* custom breakpoints */
+    --breakpoint-*:initial;
+    --breakpoint-xs:575px;
+    --breakpoint-sm:768px;
+    --breakpoint-md:992px;
+    --breakpoint-lg:1200px;
+    --breakpoint-xl:1400px;
+    /* Typography */
+    --font-poppins: 'Poppins', sans-serif;
+}
+
+@layer base {
+    body {
+        @apply font-poppins;
+    }
+}
+
+@layer components {
+    button {
+        @apply cursor-pointer;
+    }
+    .secondary-btn {
+        @apply bg-sky-600 text-gray-100 py-4 px-8 rounded-[50px] hover:bg-sky-800 transition-colors;
+    }
+    .primary-btn {
+        @apply bg-white text-gray-900 py-4 px-8 rounded-[50px] hover:bg-white/90 transition-all;
+    }
+}
+
+@layer utilities {
+    .container {
+        @apply px-4 xs:max-w-[540px] sm:max-w-[720px] md:max-w-[960px] lg:max-w-[1150px] xl:max-w-[1350px] mx-auto;
+    }
+    h1,h2,h3,h4{
+        @apply leading-[1.2] font-semibold;
+    }
+    p{
+        @apply leading-normal text-sm sm:text-base md:text-lg text-gray-600;
+    }
+    .section{
+        @apply pt-[90px] md:pt-[150px];
+    }
+    h2{
+        @apply text-2xl sm:text-3xl;
+    }
+    .subtitle{
+        @apply font-medium text-sky-700;
+    }
+}
+
+/* Header */
+.header{
+    @apply w-full text-white py-4 fixed top-0 left-0 z-40;
+}
+
+header.active{
+    @apply bg-sky-700;
+    animation: slideIn 0.5s forwards ease-in-out;
+}
+
+@keyframes slideIn {
+    0%{
+        transform: translateY(-100%);
+    }
+    100%{
+        transform: translateY(0);
+    }
+}
+
+.navbar{
+    @apply md:hidden fixed top-0 left-0 bg-white h-screen max-w-[280px] w-full text-gray-900 p-7 z-40 flex flex-col transition-transform -translate-x-[280px];
+}
+
+.navbar.active{
+    @apply translate-x-0;
+}
+
+.overlay{
+    @apply fixed top-0 left-0 w-full h-screen bg-gray-800/70 opacity-0 pointer-events-none z-30 transition md:hidden;
+}
+
+.overlay.active{
+    @apply opacity-100 pointer-events-auto;
+}

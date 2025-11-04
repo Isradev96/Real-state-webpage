@@ -11,7 +11,7 @@ import 'swiper/css/pagination'
 
 const PopularProperties = () => {
   return (
-    <section className='section'>
+    <section className='section' id="properties">
       <div className='container'>
         {/* Title Wrapper */}
        <div className='lg:flex lg:justify-between lg:items-center'>

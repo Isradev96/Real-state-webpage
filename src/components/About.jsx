@@ -12,7 +12,7 @@ const About = () => {
     })
 
   return (
-    <section className='section'>
+    <section className='section' id='about'>
         <div className='container grid gap-[50px] md:items-center md:grid-cols-2'>
             {/* content */}
             <div className='md:order-1'>
